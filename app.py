@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask import render_template
+from flask import render_template, redirect
 
 
 app = Flask(__name__)
@@ -12,8 +12,7 @@ def index():
 
 @app.route('/data')
 def names():
-    data = {"names": ["John", "Jacob", "Julie", "Jennifer"]}
-    return jsonify(data)
+    return redirect('/')
 
 
 if __name__ == '__main__':
