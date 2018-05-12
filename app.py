@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask import render_template, redirect
+from flask import render_template, redirect, request
 
 
 app = Flask(__name__)
@@ -9,6 +9,10 @@ app = Flask(__name__)
 def index():
     return render_template("resume.html")
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+	print request.form.get('name')
+	return redirect('/')
 
 @app.route('/data')
 def names():
